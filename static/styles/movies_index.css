@@ -1,0 +1,11 @@
+.movie_image {
+    max-height: 200px;
+}
+
+.flex_wrap {
+    flex-wrap: wrap;
+}
+
+.display_flex {
+    display: flex;
+}
