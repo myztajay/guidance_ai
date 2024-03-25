@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+<!-- <div class="columns no-padding margin">
+  <div class="column no-margin no-padding is-one-sixth">
+    <aside class="menu menu-scrollable">
+      <p class="menu-label">
+        General
+      </p>
+      <ul class="menu-list">
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">Customers</a></li>
+      </ul>
+      <p class="menu-label">
+        Administration
+      </p>
+      <ul class="menu-list">
+        <li><a href="#">Team Settings</a></li>
+        <li>
+          <a href="#">Manage Your Team</a>
+          <ul>
+            <li><a href="#">Members</a></li>
+            <li><a href="#">Plugins</a></li>
+            <li><a href="#">Add a member</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Invitations</a></li>
+      </ul>
+      <p class="menu-label">
+        Transactions
+      </p>
+      <ul class="menu-list">
+        <li><a href="#">Payments</a></li>
+        <li><a href="#">Transfers</a></li>
+        <li><a href="#">Balance</a></li>
+        <li><a href="#">Payments</a></li>
+        <li><a href="#">Transfers</a></li>
+        <li><a href="#">Balance</a></li>
+        <li><a href="#">Payments</a></li>
+        <li><a href="#">Transfers</a></li>
+        <li><a href="#">Balance</a></li>
+        <li><a href="#">Payments</a></li>
+        <li><a href="#">Transfers</a></li>
+        <li><a href="#">Balance</a></li>
+      </ul>
+    </aside>
+  </div> -->
+{% block content %}
+
+
+
+
+<div class="columns">
+
+
+  <div class="column is-one-fourth">
+    <!-- carousel -->
+    <div>
+      <div class="carousel" id="myCarousel">
+        <div class="carousel-inner">
+          <div class="carousel-item"><img src="image1.jpg" alt="Image 1"> 1</div>
+          <div class="carousel-item"><img src="image2.jpg" alt="Image 2">2</div>
+          <div class="carousel-item"><img src="image3.jpg" alt="Image 3">3</div>
+          <!-- Add more carousel items as needed -->
+        </div>
+      </div>
+      <div class="buttons">
+        <button class="button is-primary" id="prevBtn">Previous</button>
+        <button class="button is-primary" id="nextBtn">Next</button>
+      </div>
+    </div>
+    <!-- carousel end  -->
+
+
+    <label class="label">Message</label>
+    <div class="control">
+      <textarea class="textarea" placeholder="Textarea"></textarea>
+    </div>
+
+
+    <div class="field">
+      <div class="control">
+        <label class="checkbox">
+          <input type="checkbox">
+          I agree to the <a href="#">terms and conditions</a>
+        </label>
+      </div>
+    </div>
+
+
+
+    <div class="field is-grouped">
+      <div class="control">
+        <button class="button is-link">Submit</button>
+      </div>
+      <div class="control">
+        <button class="button is-link is-light">Cancel</button>
+      </div>
+    </div>
+  </div>
+  <div class="column is-narrow">
+    <div class="vertical-divider"></div>
+  </div>
+  <div class="column is-half is-primary-dark">
+    <h1 class="title">
+      Response section
+    </h1>
+  </div>
+</div>
+</div>
+{% endblock %}

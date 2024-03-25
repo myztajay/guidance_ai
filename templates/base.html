@@ -7,34 +7,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Guidance AI</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
-    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles/movies_index.css')}}">
-    <script src="{{ url_for('static',filename='moviesIndex.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles/index.css')}}">
+    <script src="{{ url_for('static',filename='index.js') }}"></script>
 </head>
 
 <body>
-    <section class="hero is-primary is-fullheight">
 
-        <div class="hero-head">
-            <nav class="navbar">
-                <a class="navbar-item" href="{{url_for('home')}}">
-                    Home
-                </a>
-                <a class="navbar-item" href="{{url_for('about_me')}}">
-                    About me
-                </a>
-                <a class="navbar-item" href="{{url_for('about_app')}}">
-                    Why Does This Exist?
-                </a>
-            </nav>
-        </div>
-
-        <div class="hero-body">
-            <div class="container has-text-centered">
-                {% block content %}
-                {% endblock %}
+    <div class="column no-padding no-margin">
+        <section class="hero is-info is-fullheight">
+            <div class="hero-head ">
+                <nav class="navbar ">
+                    <a class="navbar-item" href="{{url_for('home')}}">
+                        Home
+                    </a>
+                    <a class="navbar-item" href="{{url_for('about_me')}}">
+                        About me
+                    </a>
+                    <a class="navbar-item" href="{{url_for('about_app')}}">
+                        Why Does This Exist?
+                    </a>
+                    <a class="navbar-item" href="{{url_for('get_guidance')}}">
+                        Get A guide
+                    </a>
+                </nav>
             </div>
-        </div>
-    </section>
+
+            <div class="hero-body">
+                <div class="container has-text-centered">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+
+        </section>
+        <!-- Your main content goes here -->
+
 </body>
 
 </html>

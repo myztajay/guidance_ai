@@ -17,4 +17,4 @@ def about_app():
 
 @app.route('/get_guidance')
 def get_guidance():
-    return '<h1>about </h1>'
+    return render_template('getguidance.html')
