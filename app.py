@@ -1,6 +1,8 @@
-from flask import Blueprint, render_template, Flask
+from flask import Blueprint, jsonify, render_template, Flask
+from openai import OpenAI
 
 
+client = OpenAI()
 app = Flask(__name__)
 
 @app.route('/')
@@ -18,3 +20,13 @@ def about_app():
 @app.route('/get_guidance')
 def get_guidance():
     return render_template('getguidance.html')
+
+@app.route('/get_api_data')
+def get_api_data():
+    my_assistant = client.beta.assistants.create(
+        instructions="You are a personal math tutor. When asked a question, write and run Python code to answer the question.",
+        name="Math Tutor",
+        tools=[{"type": "code_interpreter"}],
+        model="gpt-4-turbo",
+    )
+    return jsonify(my_assistant)

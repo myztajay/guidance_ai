@@ -23,4 +23,11 @@ window.addEventListener("DOMContentLoaded", () => {
 
 	nextBtn.addEventListener("click", nextSlide);
 	prevBtn.addEventListener("click", prevSlide);
+
+	document.getElementById("apiButton").addEventListener("click", function () {
+		fetch("/get_api_data")
+			.then((response) => response.json())
+			.then((data) => console.log(data))
+			.catch((error) => console.error("Error:", error));
+	});
 });
