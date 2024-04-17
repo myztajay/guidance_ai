@@ -1,8 +1,11 @@
 from flask import Blueprint, jsonify, render_template, Flask
 from openai import OpenAI
+from secret import OPENAI_API_KEY
+import os
 
 
 client = OpenAI()
+client.api_key = OPENAI_API_KEY
 app = Flask(__name__)
 
 @app.route('/')
