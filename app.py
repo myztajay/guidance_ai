@@ -1,11 +1,12 @@
 from flask import Blueprint, jsonify, render_template, Flask
 from openai import OpenAI
 from secret import OPENAI_API_KEY
-import os
+import pdb; 
 
 
-client = OpenAI()
-client.api_key = OPENAI_API_KEY
+
+client = OpenAI(api_key=OPENAI_API_KEY)
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -26,10 +27,41 @@ def get_guidance():
 
 @app.route('/get_api_data')
 def get_api_data():
-    my_assistant = client.beta.assistants.create(
-        instructions="You are a personal math tutor. When asked a question, write and run Python code to answer the question.",
-        name="Math Tutor",
-        tools=[{"type": "code_interpreter"}],
-        model="gpt-4-turbo",
+
+    # assistant = client.beta.assistants.create(
+    #     instructions="You are a jesus. When asked a question, write me a humorous response with bible references.",
+    #     name="jesus",
+    #     tools=[{"type": "code_interpreter"}],
+    #     model="gpt-4-turbo",
+    # )
+    thread = client.beta.threads.create()
+    message = client.beta.threads.messages.create(
+        thread_id=thread.id,
+        role="user",
+        content="why am i here?"
     )
-    return jsonify(my_assistant)
+
+    run = client.beta.threads.runs.create_and_poll(
+        thread_id=thread.id,
+        # test asst
+        assistant_id="asst_goGuCjkF11uyVbK95FA3DxpS",
+        instructions="You are a jesus. When asked a question, write me a humorous response with bible references."
+    )
+
+    if run.status == 'completed': 
+        messages = client.beta.threads.messages.list(
+            thread_id=thread.id
+        )
+        print(messages)
+    else:
+        print(run.status)
+    # pdb.set_trace()
+    res = {
+        "message": messages.data[0].content[0].text.value
+    }
+    print(jsonify(res))
+    return jsonify(res)
+    # pdb.set_trace()
+    
+   
+    

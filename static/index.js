@@ -24,10 +24,18 @@ window.addEventListener("DOMContentLoaded", () => {
 	nextBtn.addEventListener("click", nextSlide);
 	prevBtn.addEventListener("click", prevSlide);
 
-	document.getElementById("apiButton").addEventListener("click", function () {
-		fetch("/get_api_data")
-			.then((response) => response.json())
-			.then((data) => console.log(data))
-			.catch((error) => console.error("Error:", error));
-	});
+	document
+		.getElementById("apiButton")
+		.addEventListener("click", async function () {
+			try {
+				const response = await fetch("/get_api_data");
+				if (!response.ok) {
+					throw new Error(`HTTP error! status: ${response.status}`);
+				}
+				const data = await response.json();
+				console.log(data);
+			} catch (error) {
+				console.log("Error:", error);
+			}
+		});
 });
